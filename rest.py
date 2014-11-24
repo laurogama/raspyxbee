@@ -55,7 +55,7 @@ def execute_action(endpoint, action):
     return "execute action: " + action + " on device: " + endpoint['name']
 
 
-class Endpoints(restful.Resource):
+class Endpoint(restful.Resource):
     def get(self, id=None, action=None):
         if id is not None:
             for endpoint in endpoints:
@@ -73,9 +73,11 @@ class Router(restful.Resource):
         return {'xbee_id': '40ABBB4E'}
 
 
-api.add_resource(Endpoints, '/api/endpoints', '/api/endpoints/<string:id>',
-                 '/api/endpoints/<string:id>/<string:action>',
-                 endpoint='get')
+api.add_resource(Endpoint,
+                 '/api/endpoint/',
+                 '/api/endpoint/<string:id>',
+                 '/api/endpoint/<string:id>/<string:action>',
+)
 
 api.add_resource(Router, '/api/router')
 
