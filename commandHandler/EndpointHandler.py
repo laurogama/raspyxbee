@@ -24,25 +24,6 @@ def confirm_command(result):
     return False
 
 
-# def connect_target(id, ser):
-# print "connect_Target \n"
-# ser.write("+++")
-# # print ser.readall()
-# if ser.readall() == "OK\r":
-# print "+++ OK"
-#         ser.write("ATDL" + id)
-#         print ser.readall()
-#         if ser.readall() == "OK\r":
-#             print "atdl " + id + " OK"
-#             ser.write("ATWR")
-#             if ser.readall() == "OK\r":
-#                 ser.write("ATCN")
-#                 if ser.readall() == "OK\r":
-#                     return True
-#     print "error"
-#     return False
-
-
 def connect_target(id, ser):
     ser.write("+++")
     time.sleep(0.1)

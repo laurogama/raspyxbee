@@ -1,12 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask.ext import restful
+from flask.ext.bootstrap import Bootstrap
 
 from commandHandler import EndpointHandler
 
 
 app = Flask(__name__)
 api = restful.Api(app)
-
+Bootstrap(app)
 endpoints = [
     {
         'name': 'tomada1',
@@ -53,9 +54,12 @@ endpoints = [
 
 
 @app.route("/")
-def hello():
-    return "Snakebed! A REST API for iteracting with IOT devices using Flask."
+def index():
+    return render_template("index.html")
 
+@app.route("/tests")
+def tests():
+    return render_template("tests.html")
 
 class Endpoint(restful.Resource):
     def get(self, id=None, action=None):
