@@ -27,9 +27,9 @@ def confirm_command(result):
 # def connect_target(id, ser):
 # print "connect_Target \n"
 # ser.write("+++")
-#     # print ser.readall()
-#     if ser.readall() == "OK\r":
-#         print "+++ OK"
+# # print ser.readall()
+# if ser.readall() == "OK\r":
+# print "+++ OK"
 #         ser.write("ATDL" + id)
 #         print ser.readall()
 #         if ser.readall() == "OK\r":
@@ -48,7 +48,7 @@ def connect_target(id, ser):
     time.sleep(0.1)
     print ser.readline()
     time.sleep(0.1)
-    ser.write("atdl" + id+"\r")
+    ser.write("atdl" + id + "\r")
     time.sleep(0.1)
     print ser.readline()
     time.sleep(0.1)
@@ -66,5 +66,9 @@ def connect_target(id, ser):
 def send_message(id, action):
     if connect_target(id, ser):
         ser.write(actions[action])
-        return "execute action: " + action + " on device: " + id
+        return {
+            "command": "execute action: " + action,
+            "target": id,
+            "status": ser.readline()}
+
     return "Problems sending message"
