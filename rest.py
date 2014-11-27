@@ -27,7 +27,7 @@ endpoints = [
     },
     {
         'name': 'tomada3',
-        'xbee_id': '40ABBB4E',
+        'xbee_id': '40ABB938',
         'actions': [
             {'command': 'ligar', 'description': 'turns the power outlet ON',
              'example': '/api/endpoints/tomada3/ligar', },
