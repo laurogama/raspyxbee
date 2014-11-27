@@ -1,5 +1,8 @@
 import time
 
+import settings
+
+
 __author__ = 'laurogama'
 import serial
 
@@ -14,8 +17,6 @@ actions = {
     'volumedown': 'c5'
 }
 
-ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
-
 
 def confirm_command(result):
     print result
@@ -25,6 +26,7 @@ def confirm_command(result):
 
 
 def connect_target(id, ser):
+    print "target:" + id
     ser.write("+++")
     time.sleep(0.1)
     print ser.readline()
@@ -45,11 +47,17 @@ def connect_target(id, ser):
 
 
 def send_message(id, action):
-    if connect_target(id, ser):
-        ser.write(actions[action])
-        return {
-            "command": "execute action: " + action,
-            "target": id,
-            "status": ser.readline()}
-
-    return "Problems sending message"
+    try:
+        ser = serial.Serial(settings.SERIAL_PORT, 9600, timeout=1)
+        if connect_target(id, ser):
+            ser.write(actions[action])
+            time.sleep(0.1)
+            status = ser.readline()
+            ser.close()
+            return {
+                "command": "execute action: " + action,
+                "target": id,
+                "status": status}, 200
+        return "Problems sending message" , 500
+    except:
+        return "Cant open serial port " + settings.SERIAL_PORT, 503
