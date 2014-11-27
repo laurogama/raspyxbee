@@ -41,13 +41,13 @@ endpoints = [
             {'command': 'power', 'description': 'turns the power ON or OFF',
              'example': '/api/endpoints/infrared1/power', },
             {'command': 'canalup', 'description': 'increases the channel',
-             'example': '/api/endpoints/infrared1/ligar', },
-            {'command': 'canaldown', 'description': 'decreases the channel',
              'example': '/api/endpoints/infrared1/canalup', },
-            {'command': 'volumeup', 'description': 'turns the volume UP',
+            {'command': 'canaldown', 'description': 'decreases the channel',
              'example': '/api/endpoints/infrared1/canaldown', },
-            {'command': 'volumedown', 'description': 'turns the volume DOWN',
+            {'command': 'volumeup', 'description': 'turns the volume UP',
              'example': '/api/endpoints/infrared1/volumeup', },
+            {'command': 'volumedown', 'description': 'turns the volume DOWN',
+             'example': '/api/endpoints/infrared1/volumedown', },
         ]
     }
 ]
