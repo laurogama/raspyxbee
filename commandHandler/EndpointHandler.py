@@ -10,11 +10,11 @@ import serial
 actions = {
     'ligar': 'l',
     'desligar': 'd',
-    'power': 'c1',
-    'canalup': 'c2',
-    'canaldown': 'c3',
-    'volumeup': 'c4',
-    'volumedown': 'c5'
+    'power': '1',
+    'canalup': '2',
+    'canaldown': '3',
+    'volumeup': '4',
+    'volumedown': '5'
 }
 
 

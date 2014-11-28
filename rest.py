@@ -36,7 +36,7 @@ endpoints = [
     },
     {
         'name': 'infrared1',
-        'xbee_id': '40ABB842',
+        'xbee_id': '40ABBA0B',
         'actions': [
             {'command': 'power', 'description': 'turns the power ON or OFF',
              'example': '/api/endpoints/infrared1/power', },
