@@ -13,15 +13,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">SnakeBed</a>
+                <a class="navbar-brand" href="{{ url_for('index') }}">SnakeBed</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ url_for('index') }}">Inicio<span class="sr-only">(current)</span></a>
+                    <li class="active"><a href="{{ url_for('index') }}">Start<span class="sr-only">(current)</span></a>
                     </li>
-                    <li><a href="{{ url_for('tests') }}">Exemplos</a></li>
+                    <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
+                    <li><a href="{{ url_for('tests') }}">Examples</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
