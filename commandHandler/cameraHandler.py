@@ -1,15 +1,10 @@
 from subprocess import call
 
-from flask import send_from_directory
-
+JPG_FILENAME = "image.jpg"
+JPG_PATH = "/home/pi/projetos/rest/static"
 
 __author__ = 'laurogama'
 
 
 def take_picture():
-    call(["raspistill", "-o", "/tmp/image.jpg"])
-    send_from_directory('/tmp', 'image.jpg')
-
-
-def get_last_picture():
-    send_from_directory('/tmp', 'image.jpg')
+    call(["raspistill", "-o", JPG_PATH + "/" + JPG_FILENAME])

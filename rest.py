@@ -5,7 +5,7 @@ from flask.ext.bootstrap import Bootstrap
 
 from commandHandler import EndpointHandler
 
-from commandHandler.cameraHandler import take_picture, get_last_picture
+from commandHandler.cameraHandler import take_picture
 from settings import headers
 
 
@@ -105,11 +105,8 @@ class Router(restful.Resource):
 class Camera(restful.Resource):
     def get(self, action=None):
         if action == "takepicture":
-            take_picture(), 200
-            pass
-        if action == "lastpicture":
-            get_last_picture()
-            pass
+            take_picture()
+        return make_response(render_template("picture.html"))
 
 
 api.add_resource(Endpoint,
@@ -120,7 +117,7 @@ api.add_resource(Endpoint,
 
 api.add_resource(Router, '/api/router')
 
-api.add_resource(Camera, '/api/camera/<string:action')
+api.add_resource(Camera, '/api/camera/','/api/camera/<string:action>')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

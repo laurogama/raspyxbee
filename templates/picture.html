@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Picture{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Instalation</div>
+                    <div class="panel-body">
+                        <img class="img-thumbnail" src="{{ url_for('static', filename='image.jpg') }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
