@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, make_response
 from flask.ext import restful
 from flask.ext.bootstrap import Bootstrap
 
@@ -57,25 +57,37 @@ endpoints = [
 def index():
     return render_template("index.html")
 
+
 @app.route("/documentation")
 def documentation():
     return render_template("documentation.html")
+
 
 @app.route("/tests")
 def tests():
     return render_template("tests.html")
 
+
 class Endpoint(restful.Resource):
     def get(self, id=None, action=None):
+        headers = {'Content-Type': 'text/html'}
         if id is not None:
             for endpoint in endpoints:
                 if endpoint.get('name') == id:
                     if action is not None:
                         for act in endpoint.get('actions'):
                             if act.get('command') == action:
+                                # return EndpointHandler.send_message(endpoint['xbee_id'], action)
                                 # print endpoint['xbee_id']
-                                return EndpointHandler.send_message(endpoint['xbee_id'], action)
-                    return endpoint
+                                return make_response(render_template("result.html", endpoint=None,
+                                                                     action=EndpointHandler.send_message(
+                                                                         endpoint['xbee_id'], action)), 200,
+                                                     headers)  # ,
+                                # endpoint='lauro'
+                                # action=EndpointHandler.send_message(endpoint['xbee_id'], action))
+                                # endpoint=EndpointHandler.send_message(endpoint['xbee_id'], action))
+                    return make_response(render_template("result.html", endpoint=endpoint), 200,
+                                         headers)  # , endpoint=endpoint)
         return endpoints
 
 

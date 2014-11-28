@@ -18,13 +18,6 @@ actions = {
 }
 
 
-def confirm_command(result):
-    print result
-    if result == 'OK':
-        return True
-    return False
-
-
 def connect_target(id, ser):
     print "target:" + id
     ser.write("+++")
@@ -57,7 +50,7 @@ def send_message(id, action):
             return {
                 "command": "execute action: " + action,
                 "target": id,
-                "status": status}, 200
-        return "Problems sending message" , 500
+                "status": status}
+        return {"error": "Problems sending message"}
     except:
-        return "Cant open serial port " + settings.SERIAL_PORT, 503
+        return {"error": "Cant open serial port " + settings.SERIAL_PORT}

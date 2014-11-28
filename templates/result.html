@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}Response{% endblock %}
+{% block content %}
+    <div class="page-header"><h1>Result</h1></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+
+                {% if endpoint %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Endpoint</div>
+                        <div class="panel-body">
+                            {{ endpoint }}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if action %}
+                    {% if action.error %}
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">Error</div>
+                            <div class="panel-body">
+                                {{ action.error }}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Response</div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">Status: {{ action.status }}</li>
+                                <li class="list-group-item"> Command : {{ action.command }}</li>
+                                <li class="list-group-item">Target: {{ action.target }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
