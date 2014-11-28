@@ -3,6 +3,7 @@ from flask.ext import restful
 from flask.ext.bootstrap import Bootstrap
 
 from commandHandler import EndpointHandler
+from settings import headers
 
 
 app = Flask(__name__)
@@ -51,6 +52,7 @@ endpoints = [
         ]
     }
 ]
+router = {'xbee_id': '40ABBB4E'}
 
 
 @app.route("/")
@@ -60,7 +62,7 @@ def index():
 
 @app.route("/documentation")
 def documentation():
-    return render_template("documentation.html")
+    return make_response(render_template("documentation.html", endpoints=endpoints, router=router), 200, headers)
 
 
 @app.route("/tests")
@@ -70,7 +72,7 @@ def tests():
 
 class Endpoint(restful.Resource):
     def get(self, id=None, action=None):
-        headers = {'Content-Type': 'text/html'}
+
         if id is not None:
             for endpoint in endpoints:
                 if endpoint.get('name') == id:
@@ -93,7 +95,8 @@ class Endpoint(restful.Resource):
 
 class Router(restful.Resource):
     def get(self):
-        return {'xbee_id': '40ABBB4E'}
+        return make_response(render_template("result.html", router=router), 200,
+                             headers)
 
 
 api.add_resource(Endpoint,
