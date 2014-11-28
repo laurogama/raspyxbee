@@ -1,3 +1,5 @@
+import time
+
 from flask import Flask, render_template, make_response
 
 from flask.ext import restful
@@ -12,6 +14,7 @@ from settings import headers
 app = Flask(__name__)
 api = restful.Api(app)
 Bootstrap(app)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
 endpoints = [
     {
         'name': 'tomada1',
@@ -104,8 +107,10 @@ class Router(restful.Resource):
 
 class Camera(restful.Resource):
     def get(self, action=None):
-        if action == "takepicture":
+        print action
+        if 'takepicture' == action:
             take_picture()
+            time.sleep(1)
         return make_response(render_template("picture.html"))
 
 
@@ -117,7 +122,7 @@ api.add_resource(Endpoint,
 
 api.add_resource(Router, '/api/router')
 
-api.add_resource(Camera, '/api/camera/','/api/camera/<string:action>')
+api.add_resource(Camera, '/api/camera/', '/api/camera/<string:action>')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
