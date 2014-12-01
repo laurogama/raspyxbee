@@ -1,6 +1,8 @@
 import time
+
 from commandHandler import EndpointHandler
 from commandHandler.cameraHandler import take_picture
+
 
 __author__ = 'laurogama'
 from flask.ext import restful
@@ -9,9 +11,12 @@ endpoints = [
     {
         'name': 'tomada1',
         'xbee_id': '40ABBC08',
-        'actions': [{'command': 'ligar', 'description': 'turns the power outlet ON',
-                     'example': '/api/endpoint/tomada1/ligar', },
-                    {'command': 'desligar', 'description': 'turns the power outlet OFF'}]
+        'actions': [
+            {'command': 'ligar', 'description': 'turns the power outlet ON',
+             'example': '/api/endpoint/tomada1/ligar', },
+            {'command': 'desligar', 'description': 'turns the power outlet OFF'},
+            {'command': 'estado', 'description': 'queries the actual status of the device'}
+        ]
     },
     {
         'name': 'tomada2',
@@ -19,7 +24,9 @@ endpoints = [
         'actions': [
             {'command': 'ligar', 'description': 'turns the power outlet ON',
              'example': '/api/endpoint/tomada2/ligar', },
-            {'command': 'desligar', 'description': 'turns the power outlet OFF'}
+            {'command': 'desligar', 'description': 'turns the power outlet OFF'},
+            {'command': 'estado', 'description': 'queries the actual status of the device'}
+
         ]
     },
     {
@@ -28,7 +35,8 @@ endpoints = [
         'actions': [
             {'command': 'ligar', 'description': 'turns the power outlet ON',
              'example': '/api/endpoint/tomada3/ligar', },
-            {'command': 'desligar', 'description': 'turns the power outlet OFF'}
+            {'command': 'desligar', 'description': 'turns the power outlet OFF'},
+            {'command': 'estado', 'description': 'queries the actual status of the device'}
         ]
     },
     {
@@ -45,10 +53,12 @@ endpoints = [
              'example': '/api/endpoint/infrared1/volumeup', },
             {'command': 'volumedown', 'description': 'turns the volume DOWN',
              'example': '/api/endpoint/infrared1/volumedown', },
+            {'command': 'estado', 'description': 'queries the actual status of the device'}
         ]
     }
 ]
 router = {'xbee_id': '40ABBB4E'}
+
 
 class APIEndpoint(restful.Resource):
     def get(self, id=None, action=None):

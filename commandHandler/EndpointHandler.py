@@ -10,6 +10,7 @@ import serial
 actions = {
     'ligar': 'l',
     'desligar': 'd',
+    'estado':'e',
     'power': '1',
     'canalup': '2',
     'canaldown': '3',
