@@ -15,7 +15,11 @@ actions = {
     'canalup': '2',
     'canaldown': '3',
     'volumeup': '4',
-    'volumedown': '5'
+    'volumedown': '5',
+    'verde':'l',
+    'vermelho':'v',
+    'laranja':'e',
+
 }
 
 

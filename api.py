@@ -40,6 +40,17 @@ endpoints = [
         ]
     },
     {
+        'name': 'cesto',
+        'xbee_id': '40ABB938',
+        'actions': [
+            {'command': 'desligar', 'description': 'desliga todos os leds'},
+            {'command': 'vermelho', 'description': 'queries the actual status of the device'},
+            {'command': 'verde', 'description': 'queries the actual status of the device'},
+            {'command': 'laranja', 'description': 'queries the actual status of the device'}
+
+        ]
+    },
+    {
         'name': 'infrared1',
         'xbee_id': '40ABBA0B',
         'actions': [
