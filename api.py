@@ -51,6 +51,24 @@ endpoints = [
         ]
     },
     {
+        'name': 'porta',
+        'xbee_id': '40ABB8A2',
+        'actions': [
+            {'command': 'desligar', 'description': 'fecha a porta'},
+            {'command': 'ligar', 'description': 'abre a porta'},
+            {'command': 'estado', 'description': 'queries the actual status of the device'}
+        ]
+    },
+    {
+        'name': 'medidor',
+        'xbee_id': '40AEB852',
+        'actions': [
+            {'command': 'desligar', 'description': 'fecha a porta'},
+            {'command': 'ligar', 'description': 'abre a porta'},
+            {'command': 'estado', 'description': 'queries the actual status of the device'}
+        ]
+    },
+    {
         'name': 'infrared1',
         'xbee_id': '40ABBA0B',
         'actions': [
