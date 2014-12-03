@@ -61,11 +61,9 @@ endpoints = [
     },
     {
         'name': 'medidor',
-        'xbee_id': '40AEB852',
+        'xbee_id': '40ABB6E9',
         'actions': [
-            {'command': 'desligar', 'description': 'fecha a porta'},
-            {'command': 'ligar', 'description': 'abre a porta'},
-            {'command': 'estado', 'description': 'queries the actual status of the device'}
+            {'command': 'energia', 'description': 'queries the actual status of the device'}
         ]
     },
     {
