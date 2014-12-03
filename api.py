@@ -1,5 +1,6 @@
 # coding=utf-8
 import time
+from flask import jsonify
 
 from commandHandler import EndpointHandler
 from commandHandler.cameraHandler import take_picture
@@ -101,7 +102,7 @@ class APIEndpoint(restful.Resource):
                     if action is not None:
                         for act in endpoint.get('actions'):
                             if act.get('command') == action:
-                                return EndpointHandler.send_message(endpoint['xbee_id'], action)
+                                return jsonify(EndpointHandler.send_message(endpoint['xbee_id'], action))
                     return endpoint
         return endpoints
 

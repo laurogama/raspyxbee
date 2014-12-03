@@ -22,7 +22,7 @@ actions = {
     'energia': 'e',
     'food': '1',
     'water': '2',
-    'distancia':'l'
+    'distancia': 'l'
 
 }
 
