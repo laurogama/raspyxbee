@@ -10,7 +10,7 @@ from flask.ext import restful
 
 endpoints = [
     # {
-    #     'name': 'tomada1',
+    # 'name': 'tomada1',
     #     'xbee_id': '40ABBC08',
     #     'actions': [
     #         {'command': 'ligar', 'description': 'turns the power outlet ON',
@@ -31,8 +31,7 @@ endpoints = [
         'name': 'sharp',
         'xbee_id': '40ABBA21',
         'actions': [
-            {'command': 'distancia', 'description': 'retorna a distancia do sensor (não tratada)',
-             'example': '/api/endpoint/sharp/distancia', }
+            {'command': 'distancia'}
         ]
     },
     # {
