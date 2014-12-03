@@ -8,16 +8,16 @@ __author__ = 'laurogama'
 from flask.ext import restful
 
 endpoints = [
-    {
-        'name': 'tomada1',
-        'xbee_id': '40ABBC08',
-        'actions': [
-            {'command': 'ligar', 'description': 'turns the power outlet ON',
-             'example': '/api/endpoint/tomada1/ligar', },
-            {'command': 'desligar', 'description': 'turns the power outlet OFF'},
-            {'command': 'estado', 'description': 'queries the actual status of the device'}
-        ]
-    },
+    # {
+    #     'name': 'tomada1',
+    #     'xbee_id': '40ABBC08',
+    #     'actions': [
+    #         {'command': 'ligar', 'description': 'turns the power outlet ON',
+    #          'example': '/api/endpoint/tomada1/ligar', },
+    #         {'command': 'desligar', 'description': 'turns the power outlet OFF'},
+    #         {'command': 'estado', 'description': 'queries the actual status of the device'}
+    #     ]
+    # },
     {
         'name': 'alimentator',
         'xbee_id': '40ABBC08',
@@ -37,16 +37,16 @@ endpoints = [
 
         ]
     },
-    {
-        'name': 'tomada3',
-        'xbee_id': '40ABB938',
-        'actions': [
-            {'command': 'ligar', 'description': 'turns the power outlet ON',
-             'example': '/api/endpoint/tomada3/ligar', },
-            {'command': 'desligar', 'description': 'turns the power outlet OFF'},
-            {'command': 'estado', 'description': 'queries the actual status of the device'}
-        ]
-    },
+    # {
+    #     'name': 'tomada3',
+    #     'xbee_id': '40ABB938',
+    #     'actions': [
+    #         {'command': 'ligar', 'description': 'turns the power outlet ON',
+    #          'example': '/api/endpoint/tomada3/ligar', },
+    #         {'command': 'desligar', 'description': 'turns the power outlet OFF'},
+    #         {'command': 'estado', 'description': 'queries the actual status of the device'}
+    #     ]
+    # },
     {
         'name': 'cesto',
         'xbee_id': '40ABB938',

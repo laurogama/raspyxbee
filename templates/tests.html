@@ -7,13 +7,53 @@
     </div>
     <div class="container-fluid">
         <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <h1>Camera
+                    <small>
+                        <div class="label label-info">if enabled</div>
+                    </small>
+                </h1>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/camera"
+                           class="btn btn-success">Last Picture</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/camera/takepicture" class="btn btn-info">New Picture</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div>
+                    <h1>Dog Alimentator</h1>
+                    <a href="/endpoint/alimentador/food" class="btn btn-success">FOOD</a>
+                    <a href="/endpoint/alimentador/water" class="btn btn-danger">WATER</a>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div>
+                    <h1>Cesto do tempo</h1>
+                    <a href="/endpoint/cesto/verde" class="btn btn-success">Verde</a>
+                    <a href="/endpoint/cesto/vermelho" class="btn btn-danger">Vermelho</a>
+                    <a href="/endpoint/cesto/laranja" class="btn btn-warning">Laranja</a>
+                    <a href="/endpoint/cesto/desligar" class="btn btn-default">Desligar</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
 
             <div class="col-xs-12 col-md-6 col-lg-3">
                 <div>
                     <h1>Tomada 1</h1>
-                    <a href="/endpoint/tomada1/ligar" class="btn btn-success">Turn ON</a>
-                    <a href="/endpoint/tomada1/desligar" class="btn btn-danger">Turn OFF</a>
-                    <a href="/endpoint/tomada1/estado" class="btn btn-info">Status</a>
+                    <a href="/endpoint/tomada1/ligar" class="btn btn-success disabled">Turn ON</a>
+                    <a href="/endpoint/tomada1/desligar" class="btn btn-danger disabled">Turn OFF</a>
+                    <a href="/endpoint/tomada1/estado" class="btn btn-info disabled">Status</a>
                 </div>
             </div>
 
@@ -22,18 +62,18 @@
                 <h1>Tomada 2</h1>
 
                 <div>
-                    <a href="/endpoint/tomada2/ligar" class="btn btn-success">Turn ON</a>
-                    <a href="/endpoint/tomada2/desligar" class="btn btn-danger">Turn OFF</a>
-                    <a href="/endpoint/tomada2/estado" class="btn btn-info">Status</a>
+                    <a href="/endpoint/tomada2/ligar" class="btn btn-success disabled">Turn ON</a>
+                    <a href="/endpoint/tomada2/desligar" class="btn btn-danger disabled">Turn OFF</a>
+                    <a href="/endpoint/tomada2/estado" class="btn btn-info disabled">Status</a>
                 </div>
             </div>
 
 
             <div class="col-xs-12 col-md-6 col-lg-3">
                 <h1>Tomada 3</h1>
-                <a href="/endpoint/tomada3/ligar" class="btn btn-success">Turn ON</a>
-                <a href="/endpoint/tomada3/desligar" class="btn btn-danger">Turn OFF</a>
-                <a href="/endpoint/tomada3/estado" class="btn btn-info">Status</a>
+                <a href="/endpoint/tomada3/ligar" class="btn btn-success disabled">Turn ON</a>
+                <a href="/endpoint/tomada3/desligar" class="btn btn-danger disabled">Turn OFF</a>
+                <a href="/endpoint/tomada3/estado" class="btn btn-info disabled">Status</a>
             </div>
 
             <div class="col-xs-12 col-md-6 col-lg-3">
@@ -65,23 +105,6 @@
                 </ul>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-6 col-lg-3">
-                <h1>Camera
-                    <small>
-                        <div class="label label-info">if enabled</div>
-                    </small>
-                </h1>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="/camera"
-                           class="btn btn-success">Last Picture</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/camera/takepicture" class="btn btn-info">New Picture</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
     </div>
 {% endblock %}

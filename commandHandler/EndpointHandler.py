@@ -10,18 +10,18 @@ import serial
 actions = {
     'ligar': 'l',
     'desligar': 'd',
-    'estado':'e',
+    'estado': 'e',
     'power': '1',
     'canalup': '2',
     'canaldown': '3',
     'volumeup': '4',
     'volumedown': '5',
-    'verde':'l',
-    'vermelho':'v',
-    'laranja':'e',
-    'energia':'e',
-    'food':'1',
-    'water':'2'
+    'verde': 'l',
+    'vermelho': 'v',
+    'laranja': 'e',
+    'energia': 'e',
+    'food': '1',
+    'water': '2'
 
 }
 
@@ -55,8 +55,14 @@ def send_message(id, action):
             time.sleep(0.1)
             status = ser.readline()
             ser.close()
+            if status == "":
+                return {"command": action,
+                        "target": id,
+                        "error": "empty response",
+                        "status": "error"
+                }
             return {
-                "command": "execute action: " + action,
+                "command": action,
                 "target": id,
                 "status": status}
         return {"error": "Problems sending message"}
