@@ -1,3 +1,4 @@
+# coding=utf-8
 import time
 
 from commandHandler import EndpointHandler
@@ -27,14 +28,11 @@ endpoints = [
         ]
     },
     {
-        'name': 'tomada2',
+        'name': 'sharp',
         'xbee_id': '40ABBA21',
         'actions': [
-            {'command': 'ligar', 'description': 'turns the power outlet ON',
-             'example': '/api/endpoint/tomada2/ligar', },
-            {'command': 'desligar', 'description': 'turns the power outlet OFF'},
-            {'command': 'estado', 'description': 'queries the actual status of the device'}
-
+            {'command': 'distancia', 'description': 'retorna a distancia do sensor (não tratada)',
+             'example': '/api/endpoint/sharp/distancia', }
         ]
     },
     # {
