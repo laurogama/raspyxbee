@@ -1,6 +1,7 @@
 # coding=utf-8
 import time
 from flask import jsonify
+from flask.ext.cors import cross_origin
 
 from commandHandler import EndpointHandler
 from commandHandler.cameraHandler import take_picture
@@ -91,7 +92,6 @@ endpoints = [
     }
 ]
 router = {'xbee_id': '40ABBB4E'}
-
 
 class APIEndpoint(restful.Resource):
     def get(self, id=None, action=None):

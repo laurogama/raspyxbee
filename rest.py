@@ -4,6 +4,7 @@ from flask import Flask, render_template, make_response
 
 from flask.ext import restful
 from flask.ext.bootstrap import Bootstrap
+from flask.ext.cors import CORS
 
 from api import endpoints, router, APIEndpoint, APIRouter, APICamera
 
@@ -14,6 +15,7 @@ from settings import headers
 
 
 app = Flask(__name__)
+cors = CORS(app)
 api = restful.Api(app)
 Bootstrap(app)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
