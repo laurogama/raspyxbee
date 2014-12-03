@@ -19,7 +19,9 @@ actions = {
     'verde':'l',
     'vermelho':'v',
     'laranja':'e',
-    'energia':'e'
+    'energia':'e',
+    'food':'1',
+    'water':'2'
 
 }
 

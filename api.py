@@ -19,6 +19,14 @@ endpoints = [
         ]
     },
     {
+        'name': 'alimentator',
+        'xbee_id': '40ABBC08',
+        'actions': [
+            {'command': 'food', 'description': 'libera comida'},
+            {'command': 'water', 'description': 'libera agua'}
+        ]
+    },
+    {
         'name': 'tomada2',
         'xbee_id': '40ABBA21',
         'actions': [
