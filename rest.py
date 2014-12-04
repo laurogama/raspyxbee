@@ -1,17 +1,15 @@
+# coding=utf-8
 import time
 
 from flask import Flask, render_template, make_response
-
 from flask.ext import restful
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.cors import CORS
 
 from api import endpoints, router, APIEndpoint, APIRouter, APICamera
-
 from commandHandler import EndpointHandler
-
 from commandHandler.cameraHandler import take_picture
-from settings import headers
+from settings import headers, TARIFA
 
 
 app = Flask(__name__)
@@ -29,6 +27,18 @@ def index():
 @app.route("/documentation")
 def documentation():
     return make_response(render_template("documentation.html", endpoints=endpoints, router=router), 200, headers)
+
+
+@app.route("/medidor")
+def medidor():
+    medidor_request = EndpointHandler.send_message('40ABB6E9', 'energia')
+    status = medidor_request['status']
+    status = status.strip("\r\n")
+    status_array = status.split(',')
+
+    result = {"tensao": status_array[0], "corrente": status_array[1], "angulo": status_array[2],
+              "energia": status_array[3], "custo": float(status_array[3]) * TARIFA}
+    return make_response(render_template("medidor.html", result=result), 200, headers)
 
 
 @app.route("/tests")

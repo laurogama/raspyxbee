@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Medidor{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Medidor</div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+
+                            {% for key, value in result.items() %}
+                                <li class="list-group-item">
+                                <div class="label label-info">{{ key }}</div>{{ value }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

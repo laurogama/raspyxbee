@@ -62,6 +62,7 @@ def send_message(id, action):
                         "error": "empty response",
                         "status": "error"
                 }
+            print status
             return {
                 "command": action,
                 "target": id,

@@ -1,7 +1,7 @@
 # coding=utf-8
 import time
+
 from flask import jsonify
-from flask.ext.cors import cross_origin
 
 from commandHandler import EndpointHandler
 from commandHandler.cameraHandler import take_picture
@@ -13,10 +13,10 @@ from flask.ext import restful
 endpoints = [
     # {
     # 'name': 'tomada1',
-    #     'xbee_id': '40ABBC08',
-    #     'actions': [
-    #         {'command': 'ligar', 'description': 'turns the power outlet ON',
-    #          'example': '/api/endpoint/tomada1/ligar', },
+    # 'xbee_id': '40ABBC08',
+    # 'actions': [
+    # {'command': 'ligar', 'description': 'turns the power outlet ON',
+    # 'example': '/api/endpoint/tomada1/ligar', },
     #         {'command': 'desligar', 'description': 'turns the power outlet OFF'},
     #         {'command': 'estado', 'description': 'queries the actual status of the device'}
     #     ]
@@ -92,6 +92,7 @@ endpoints = [
     }
 ]
 router = {'xbee_id': '40ABBB4E'}
+
 
 class APIEndpoint(restful.Resource):
     def get(self, id=None, action=None):
