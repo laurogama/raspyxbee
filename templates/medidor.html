@@ -3,17 +3,36 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12 col-md-6 col-lg-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">Medidor</div>
                     <div class="panel-body">
                         <ul class="list-group">
 
-                            {% for key, value in result.items() %}
-                                <li class="list-group-item">
-                                <div class="label label-info">{{ key }}</div>{{ value }}
-                                </li>
-                            {% endfor %}
+                            <li class="list-group-item">
+                                <div class="label label-info">Tens&atilde;o</div>
+                                &nbsp;{{ result.get('tensao') }}&nbsp;V
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="label label-info">Corrente</div>
+                                &nbsp;{{ result.get('corrente') }}&nbsp;A
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="label label-info">Angulo</div>
+                                &nbsp;{{ result.get('angulo') }}&nbsp;&deg;
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="label label-info">Energia</div>
+                                &nbsp;{{ result.get('energia') }} KWh
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="label label-info">Custo / KWh</div>
+                                &nbsp; R${{ result.get('custo') }}
+                            </li>
                         </ul>
                     </div>
                 </div>

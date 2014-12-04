@@ -37,7 +37,7 @@ def medidor():
     status_array = status.split(',')
 
     result = {"tensao": status_array[0], "corrente": status_array[1], "angulo": status_array[2],
-              "energia": status_array[3], "custo": float(status_array[3]) * TARIFA}
+              "energia": status_array[3], "custo": round(float(status_array[3]) * TARIFA, 2)}
     return make_response(render_template("medidor.html", result=result), 200, headers)
 
 
