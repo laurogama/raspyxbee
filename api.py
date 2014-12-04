@@ -17,16 +17,17 @@ endpoints = [
     # 'actions': [
     # {'command': 'ligar', 'description': 'turns the power outlet ON',
     # 'example': '/api/endpoint/tomada1/ligar', },
-    #         {'command': 'desligar', 'description': 'turns the power outlet OFF'},
-    #         {'command': 'estado', 'description': 'queries the actual status of the device'}
-    #     ]
+    # {'command': 'desligar', 'description': 'turns the power outlet OFF'},
+    # {'command': 'estado', 'description': 'queries the actual status of the device'}
+    # ]
     # },
     {
         'name': 'alimentator',
         'xbee_id': '40ABBC08',
         'actions': [
             {'command': 'food', 'description': 'libera comida'},
-            {'command': 'water', 'description': 'libera agua'}
+            {'command': 'water', 'description': 'libera agua'},
+            {'command': 'check', 'description': 'checa se o bicho apareceu'}
         ]
     },
     {
@@ -77,16 +78,12 @@ endpoints = [
         'name': 'infrared1',
         'xbee_id': '40ABBA0B',
         'actions': [
-            {'command': 'power', 'description': 'turns the power ON or OFF',
-             'example': '/api/endpoint/infrared1/power', },
-            {'command': 'canalup', 'description': 'increases the channel',
-             'example': '/api/endpoint/infrared1/canalup', },
-            {'command': 'canaldown', 'description': 'decreases the channel',
-             'example': '/api/endpoint/infrared1/canaldown', },
-            {'command': 'volumeup', 'description': 'turns the volume UP',
-             'example': '/api/endpoint/infrared1/volumeup', },
-            {'command': 'volumedown', 'description': 'turns the volume DOWN',
-             'example': '/api/endpoint/infrared1/volumedown', },
+            {'command': 'poweron', 'description': 'turns the power ON', },
+            {'command': 'poweroff', 'description': 'turns the power OFF', },
+            {'command': 'canalup', 'description': 'increases the channel'},
+            {'command': 'canaldown', 'description': 'decreases the channel'},
+            {'command': 'volumeup', 'description': 'turns the volume UP'},
+            {'command': 'volumedown', 'description': 'turns the volume DOWN'},
             {'command': 'estado', 'description': 'queries the actual status of the device'}
         ]
     }
