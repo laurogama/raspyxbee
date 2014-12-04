@@ -64,7 +64,7 @@ endpoints = [
         'actions': [
             {'command': 'desligar', 'description': 'fecha a porta'},
             {'command': 'ligar', 'description': 'abre a porta'},
-            {'command': 'estado', 'description': 'queries the actual status of the device'}
+            {'command': 'estadoporta', 'description': 'queries the actual status of the device'}
         ]
     },
     {
