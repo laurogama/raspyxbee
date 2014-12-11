@@ -5,6 +5,7 @@ from flask import Flask, render_template, make_response
 from flask.ext import restful
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.cors import CORS
+from flask.ext.socketio import SocketIO, emit
 
 from api import endpoints, router, APIEndpoint, APIRouter, APICamera
 from commandHandler import EndpointHandler
@@ -15,6 +16,7 @@ from settings import headers, TARIFA
 app = Flask(__name__)
 cors = CORS(app)
 api = restful.Api(app)
+socketio = SocketIO(app)
 Bootstrap(app)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
 
@@ -24,6 +26,29 @@ def index():
     return render_template("index.html")
 
 
+# Websockets
+
+@socketio.on('my event', namespace='/test')
+def test_message(message):
+    emit('my response', {'data': message['data']})
+
+
+@socketio.on('my broadcast event', namespace='/test')
+def test_message(message):
+    emit('my response', {'data': message['data']}, broadcast=True)
+
+
+@socketio.on('connect', namespace='/test')
+def test_connect():
+    emit('my response', {'data': 'Connected'})
+
+
+@socketio.on('disconnect', namespace='/test')
+def test_disconnect():
+    print('Client disconnected')
+
+
+#
 @app.route("/documentation")
 def documentation():
     return make_response(render_template("documentation.html", endpoints=endpoints, router=router), 200, headers)
@@ -100,4 +125,5 @@ api.add_resource(APIRouter, '/api/router')
 api.add_resource(APICamera, '/api/camera/', '/api/camera/<string:action>')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    # app.run(host='0.0.0.0', debug=True)
+    socketio.run( app, host='0.0.0.0')
