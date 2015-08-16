@@ -2,13 +2,15 @@ from subprocess import call, check_output
 
 from settings import JPG_PATH, JPG_FILENAME
 
-
 __author__ = 'laurogama'
 
 
 def camera_enabled():
-    result = check_output(["vcgencmd", "get_camera"])
-    return "detected=1" in result
+    try:
+        result = check_output(["vcgencmd", "get_camera"])
+        return "detected=1" in result
+    except OSError:
+        return False
 
 
 def take_picture():

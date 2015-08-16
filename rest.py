@@ -11,7 +11,6 @@ from commandHandler import EndpointHandler
 from commandHandler.cameraHandler import take_picture
 from settings import headers, TARIFA
 
-
 app = Flask(__name__)
 cors = CORS(app)
 api = restful.Api(app)
@@ -31,13 +30,15 @@ def documentation():
 
 @app.route("/medidor")
 def medidor():
+    result = {}
     medidor_request = EndpointHandler.send_message('40ABB6E9', 'energia')
-    status = medidor_request['status']
-    status = status.strip("\r\n")
-    status_array = status.split(',')
+    if 'status' in medidor_request:
+        status = medidor_request['status']
+        status = status.strip("\r\n")
+        status_array = status.split(',')
 
-    result = {"tensao": status_array[0], "corrente": status_array[1], "angulo": status_array[2],
-              "energia": status_array[3], "custo": round(float(status_array[3]) * TARIFA, 2)}
+        result = {"tensao": status_array[0], "corrente": status_array[1], "angulo": status_array[2],
+                  "energia": status_array[3], "custo": round(float(status_array[3]) * TARIFA, 2)}
     return make_response(render_template("medidor.html", result=result), 200, headers)
 
 
@@ -83,7 +84,7 @@ api.add_resource(Endpoint,
                  '/endpoint/',
                  '/endpoint/<string:id>',
                  '/endpoint/<string:id>/<string:action>',
-)
+                 )
 
 api.add_resource(Router, '/router')
 
@@ -93,7 +94,7 @@ api.add_resource(APIEndpoint,
                  '/api/endpoint/',
                  '/api/endpoint/<string:id>',
                  '/api/endpoint/<string:id>/<string:action>',
-)
+                 )
 
 api.add_resource(APIRouter, '/api/router')
 
